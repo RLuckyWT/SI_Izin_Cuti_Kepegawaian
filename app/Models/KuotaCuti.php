@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+=======
+>>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
 
 class KuotaCuti extends Model
 {
@@ -14,6 +17,7 @@ class KuotaCuti extends Model
         'kuota_total', 'kuota_terpakai', 'kuota_sisa',
     ];
 
+<<<<<<< HEAD
     protected $casts = [
         'tahun' => 'integer',
         'kuota_total' => 'integer',
@@ -47,4 +51,23 @@ class KuotaCuti extends Model
     {
         return $this->kuota_sisa >= $jumlahHari;
     }
+=======
+    // Auto-hitung kuota_sisa sebelum disimpan
+    protected static function booted(): void
+    {
+        static::saving(function ($model) {
+            $model->kuota_sisa = $model->kuota_total - $model->kuota_terpakai;
+        });
+    }
+
+    public function pengguna()
+    {
+        return $this->belongsTo(Pengguna::class, 'pengguna_id');
+    }
+
+    public function jenisCuti()
+    {
+        return $this->belongsTo(JenisCuti::class, 'jenis_cuti_id');
+    }
+>>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
 }

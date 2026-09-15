@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -41,3 +42,10 @@ class PengajuanIzin extends Model
             ->where('tipe_pengajuan', 'izin');
     }
 }
+=======
+
+class PengajuanIzin extends Model
+{
+    //
+}
+>>>>>>> 4cb41376eb552479c87016f1932acaaae960737c

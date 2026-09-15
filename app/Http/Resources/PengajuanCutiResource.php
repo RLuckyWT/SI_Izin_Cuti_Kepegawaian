@@ -18,9 +18,13 @@ class PengajuanCutiResource extends JsonResource
             ],
             'jenis_cuti' => [
                 'id' => $this->jenisCuti?->id,
+<<<<<<< HEAD
                 'nama' => $this->jenisCuti?->nama_jenis,
                 'kuota_default_hari' => $this->jenisCuti?->kuota_default_hari,
                 'keterangan' => $this->jenisCuti?->keterangan,
+=======
+                'nama' => $this->jenisCuti?->nama,
+>>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
             ],
             'tanggal_mulai' => $this->tanggal_mulai?->format('Y-m-d'),
             'tanggal_selesai' => $this->tanggal_selesai?->format('Y-m-d'),
