@@ -9,7 +9,15 @@ class JenisCuti extends Model
 {
     protected $table = 'jenis_cuti';
 
-    protected $fillable = ['nama', 'kuota_default', 'keterangan'];
+    protected $fillable = [
+        'nama_jenis',
+        'kuota_default_hari',
+        'keterangan',
+    ];
+
+    protected $casts = [
+        'kuota_default_hari' => 'integer',
+    ];
 
     public function pengajuanCuti(): HasMany
     {

@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PengajuanCutiResource extends JsonResource
+class PengajuanIzinResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
@@ -16,15 +16,13 @@ class PengajuanCutiResource extends JsonResource
                 'nip' => $this->pengguna?->nip,
                 'nama' => $this->pengguna?->nama,
             ],
-            'jenis_cuti' => [
-                'id' => $this->jenisCuti?->id,
-                'nama' => $this->jenisCuti?->nama_jenis,
-                'kuota_default_hari' => $this->jenisCuti?->kuota_default_hari,
-                'keterangan' => $this->jenisCuti?->keterangan,
+            'jenis_izin' => [
+                'id' => $this->jenisIzin?->id,
+                'nama_jenis' => $this->jenisIzin?->nama_jenis,
             ],
-            'tanggal_mulai' => $this->tanggal_mulai?->format('Y-m-d'),
-            'tanggal_selesai' => $this->tanggal_selesai?->format('Y-m-d'),
-            'jumlah_hari' => $this->jumlah_hari,
+            'tanggal' => $this->tanggal?->format('Y-m-d'),
+            'jam_mulai' => $this->jam_mulai,
+            'jam_selesai' => $this->jam_selesai,
             'alasan' => $this->alasan,
             'file_lampiran' => $this->file_lampiran
                 ? asset('storage/' . $this->file_lampiran)
