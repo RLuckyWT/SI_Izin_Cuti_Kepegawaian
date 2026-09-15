@@ -6,10 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\PengajuanCutiResource;
 use App\Models\PengajuanCuti;
 use App\Models\RiwayatPersetujuan;
-<<<<<<< HEAD
 use App\Models\KuotaCuti;
-=======
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -35,11 +32,8 @@ class PengajuanCutiController extends Controller
         return PengajuanCutiResource::collection($data);
     }
 
-<<<<<<< HEAD
        // POST /api/pengajuan-cuti
-=======
     // POST /api/pengajuan-cuti
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -52,7 +46,6 @@ class PengajuanCutiController extends Controller
 
         $mulai = Carbon::parse($validated['tanggal_mulai']);
         $selesai = Carbon::parse($validated['tanggal_selesai']);
-<<<<<<< HEAD
         $jumlahHari = $mulai->diffInDays($selesai) + 1;
 
         // ✅ Cek kuota cuti
@@ -77,27 +70,18 @@ class PengajuanCutiController extends Controller
         }
 
         // Upload lampiran kalau ada
-=======
-
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
         $filePath = $request->hasFile('file_lampiran')
             ? $request->file('file_lampiran')->store('lampiran_cuti', 'public')
             : null;
 
-<<<<<<< HEAD
         // Buat pengajuan
-=======
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
         $pengajuan = PengajuanCuti::create([
             'pengguna_id' => $request->user()->id,
             'jenis_cuti_id' => $validated['jenis_cuti_id'],
             'tanggal_mulai' => $validated['tanggal_mulai'],
             'tanggal_selesai' => $validated['tanggal_selesai'],
-<<<<<<< HEAD
             'jumlah_hari' => $jumlahHari,
-=======
             'jumlah_hari' => $mulai->diffInDays($selesai) + 1,
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
             'alasan' => $validated['alasan'],
             'file_lampiran' => $filePath,
             'status' => 'menunggu',
@@ -108,10 +92,7 @@ class PengajuanCutiController extends Controller
             ->setStatusCode(201);
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
     // GET /api/pengajuan-cuti/{id}
     public function show(Request $request, PengajuanCuti $pengajuanCuti)
     {
@@ -185,15 +166,11 @@ class PengajuanCutiController extends Controller
             'status' => 'disetujui_hrd',
             'disetujui_oleh' => $request->user()->id,
             'catatan_persetujuan' => $validated['catatan_persetujuan'] ?? null,
-<<<<<<< HEAD
 
         ]);
 
 
-=======
-        ]);
-
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
+        
         RiwayatPersetujuan::create([
             'tipe_pengajuan' => 'cuti',
             'pengajuan_id' => $pengajuanCuti->id,
@@ -227,7 +204,6 @@ class PengajuanCutiController extends Controller
             'catatan_persetujuan' => $validated['catatan_persetujuan'] ?? null,
         ]);
 
-<<<<<<< HEAD
         $tahun = $pengajuanCuti->tanggal_mulai->year;
         $kuota = KuotaCuti::where('pengguna_id', $pengajuanCuti->pengguna_id)
             ->where('jenis_cuti_id', $pengajuanCuti->jenis_cuti_id)
@@ -240,8 +216,6 @@ class PengajuanCutiController extends Controller
             $kuota->save();
         }
 
-=======
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
         RiwayatPersetujuan::create([
             'tipe_pengajuan' => 'cuti',
             'pengajuan_id' => $pengajuanCuti->id,

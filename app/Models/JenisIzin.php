@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class JenisIzin extends Model
@@ -25,10 +24,8 @@ class JenisIzin extends Model
         return $this->hasMany(PengajuanIzin::class, 'jenis_izin_id');
     }
 }
-=======
 
 class JenisIzin extends Model
 {
     //
 }
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c

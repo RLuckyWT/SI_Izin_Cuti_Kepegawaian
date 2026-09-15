@@ -16,10 +16,6 @@ return Application::configure(basePath: dirname(__DIR__))
         'role' => \App\Http\Middleware\CheckRole::class,
         ]);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

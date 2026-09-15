@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\PengajuanCutiController;
-<<<<<<< HEAD
 use App\Http\Controllers\Api\JenisCutiController;
 use App\Http\Controllers\Api\JenisIzinController;
 use App\Http\Controllers\Api\KuotaCutiController;
@@ -11,8 +10,6 @@ use App\Http\Controllers\Api\PegawaiController;
 use App\Http\Controllers\Api\PenggunaController;
 use App\Http\Controllers\Api\ProfileController;
 use App\Http\Controllers\Api\RiwayatPersetujuanController;
-=======
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
 use Illuminate\Support\Facades\Route;
 
 // Public
@@ -44,7 +41,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::middleware('role:hrd,pimpinan')->group(function () {
         Route::patch('/pengajuan-cuti/{pengajuanCuti}/reject', [PengajuanCutiController::class, 'reject']);
     });
-<<<<<<< HEAD
 
     // Jenis Cuti — lihat: semua role | modif: hanya HRD
     Route::get('/jenis-cuti', [JenisCutiController::class, 'index']);
@@ -127,6 +123,4 @@ Route::middleware('auth:sanctum')->group(function () {
     // Riwayat spesifik untuk satu pengajuan
     Route::get('/pengajuan-cuti/{pengajuanCuti}/riwayat', [RiwayatPersetujuanController::class, 'forCuti']);
     Route::get('/pengajuan-izin/{pengajuanIzin}/riwayat', [RiwayatPersetujuanController::class, 'forIzin']);
-=======
->>>>>>> 4cb41376eb552479c87016f1932acaaae960737c
 });
